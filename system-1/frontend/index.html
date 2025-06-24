@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>授权管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --main-bg: #f5f6fa;
+        --menu-bg: #263445;
+        --menu-text: #fff;
+        --menu-active: #409EFF;
+      }
+      [data-theme="dark"] {
+        --main-bg: #1e222d;
+        --menu-bg: #151822;
+        --menu-text: #bbb;
+        --menu-active: #ffd800;
+      }
+      [data-theme="minimal"] {
+        --main-bg: #ffffff;
+        --menu-bg: #fafbfc;
+        --menu-text: #222;
+        --menu-active: #222;
+      }
+      [data-theme="colorful"] {
+        --main-bg: linear-gradient(120deg,#6dd5ed,#2193b0 90%);
+        --menu-bg: linear-gradient(160deg,#409EFF 20%,#e66465 100%);
+        --menu-text: #fff;
+        --menu-active: #ffd800;
+      }
+      body {
+        background: var(--main-bg);
+        transition: background .25s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
