@@ -1,0 +1,307 @@
+[data-theme="minimal"] {
+  /* 极简主题变量：明亮极简、清爽灰白、强调蓝、零阴影、零圆角 */
+  --menu-bg: #f8f8f8;
+  --menu-text: #222;
+  --menu-active: #2d8cf0;
+  --main-bg: #fff;
+  --panel-bg: #fff;
+  --panel-border: 1px solid #ededed;
+  --accent: #2d8cf0;
+  --el-color-primary: #2d8cf0;
+  --el-color-success: #19cbbb;
+  --el-color-warning: #ffd700;
+  --el-color-danger: #ff4d4f;
+  --el-color-info: #888;
+}
+
+/* 全局背景 */
+[data-theme="minimal"] body {
+  background: var(--main-bg);
+  color: var(--menu-text);
+  font-family: "Inter","PingFang SC",Helvetica,"Microsoft Yahei",Arial,sans-serif;
+  min-height: 100vh;
+  transition: none;
+}
+
+/* 侧边栏极简：无阴影、无渐变、全左对齐、细线分割 */
+[data-theme="minimal"] .sidebar {
+  background: var(--menu-bg);
+  color: var(--menu-text);
+  box-shadow: none;
+  border-right: 1px solid #e5e5e5;
+  min-width: 210px;
+  padding-top: 0;
+  align-items: stretch;
+  height: 100vh;
+  z-index: 10;
+  position: relative;
+  border-radius: 0 !important;
+}
+
+/* logo栏极简 */
+[data-theme="minimal"] .logo-bar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding-left: 15px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid #ededed;
+  gap: 13px;
+  letter-spacing: 2px;
+  color: var(--menu-text);
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* 菜单极简：无圆角、无阴影、无hover背景，仅字体高亮 */
+[data-theme="minimal"] .el-menu {
+  background: #fff !important;
+  border-right: none !important;
+  box-shadow: none !important;
+}
+[data-theme="minimal"] .el-menu-item {
+  border-radius: 0 !important;
+  margin: 0 0;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  color: var(--menu-text);
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: none !important;
+  padding-left: 32px !important;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+[data-theme="minimal"] .el-menu-item.is-active,
+[data-theme="minimal"] .el-menu-item:hover {
+  color: var(--menu-active) !important;
+  background: #f5f7fa !important;
+  border-left: 3px solid var(--menu-active) !important;
+  font-weight: 600;
+}
+[data-theme="minimal"] .el-menu-item .el-icon {
+  color: var(--menu-active);
+  margin-right: 7px;
+}
+
+/* 侧栏底部、主题切换、登出按钮极简 */
+[data-theme="minimal"] .sidebar-bottom {
+  background: #f8f8f8;
+  border-top: 1px solid #ededed;
+  box-shadow: none;
+  padding: 16px 0 16px 0;
+  border-radius: 0;
+}
+[data-theme="minimal"] .logout-btn {
+  background: #fff;
+  color: #ff4d4f;
+  border: 1px solid #ededed;
+  border-radius: 0 !important;
+  box-shadow: none;
+  font-weight: 500;
+  transition: none;
+}
+[data-theme="minimal"] .logout-btn:hover {
+  background: #ffeded;
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+}
+
+/* 主题下拉 极简 */
+[data-theme="minimal"] .el-select {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #ededed;
+}
+
+/* 顶部栏极简，主界面左对齐 */
+[data-theme="minimal"] .header-bar {
+  background: #fff;
+  box-shadow: 0 2px 8px #f3f3f3;
+  border-bottom: 1px solid #ededed;
+  min-height: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 0;
+}
+[data-theme="minimal"] .nav-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--menu-text);
+  margin-left: 10px;
+  letter-spacing: 2px;
+  text-shadow: none;
+}
+
+/* 主内容区域极简 */
+[data-theme="minimal"] .main-area {
+  background: #fff;
+  min-height: calc(100vh - 58px);
+  padding: 32px 30px 30px 30px;
+  border-radius: 0;
+  box-shadow: none;
+  margin-left: 0;
+}
+
+/* 卡片无阴影，极简边框 */
+[data-theme="minimal"] .el-card {
+  background: var(--panel-bg) !important;
+  border: var(--panel-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 18px;
+}
+
+/* 表格极简，边框明显，表头浅灰，hover仅边框加粗 */
+[data-theme="minimal"] .el-table {
+  background: #fff !important;
+  color: #222 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+[data-theme="minimal"] .el-table th {
+  background: #f5f7fa !important;
+  color: #666;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ededed;
+}
+[data-theme="minimal"] .el-table td {
+  background: #fff !important;
+  color: #222 !important;
+  border-bottom: 1px solid #ededed;
+}
+[data-theme="minimal"] .el-table__row {
+  transition: none !important;
+  animation: none !important;
+}
+[data-theme="minimal"] .el-table__row:hover {
+  background: #f8f8f8 !important;
+  border-left: 3px solid var(--menu-active) !important;
+}
+[data-theme="minimal"] .el-table .el-table__cell {
+  color: #222 !important;
+}
+
+/* 状态行色淡雅 */
+[data-theme="minimal"] .row-expired  { background: #fff3f3 !important; color: #d81b1b !important;}
+[data-theme="minimal"] .row-expiring { background: #fffde7 !important; color: #ffc107 !important;}
+[data-theme="minimal"] .row-disabled { background: #f4f4f4 !important; color: #aaa !important;}
+
+/* 按钮极简扁平 */
+[data-theme="minimal"] .el-button {
+  border-radius: 0 !important;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: #fff !important;
+  color: var(--accent);
+  border: 1px solid #ededed;
+  box-shadow: none;
+  transition: none;
+}
+[data-theme="minimal"] .el-button--primary {
+  background: #2d8cf0 !important;
+  color: #fff;
+  border: none;
+}
+[data-theme="minimal"] .el-button--primary:hover {
+  background: #1568b4 !important;
+  color: #fff;
+}
+[data-theme="minimal"] .el-button--danger {
+  background: #ffeded !important;
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+}
+[data-theme="minimal"] .el-button--danger:hover {
+  background: #ff4d4f !important;
+  color: #fff;
+}
+[data-theme="minimal"] .el-button--success {
+  background: #e7f9f7 !important;
+  color: #19cbbb;
+  border: 1px solid #19cbbb;
+}
+[data-theme="minimal"] .el-button--success:hover {
+  background: #19cbbb !important;
+  color: #fff;
+}
+
+/* 输入框/下拉/数字 极简方形 */
+[data-theme="minimal"] .el-input__inner,
+[data-theme="minimal"] .el-select .el-input__inner,
+[data-theme="minimal"] .el-input-number__inner {
+  border-radius: 0 !important;
+  background: #f8f8f8 !important;
+  border: 1px solid #ededed !important;
+  box-shadow: none;
+  color: #222 !important;
+  font-weight: 500;
+  transition: none;
+}
+[data-theme="minimal"] .el-input__inner:focus,
+[data-theme="minimal"] .el-select .el-input__inner:focus,
+[data-theme="minimal"] .el-input-number__inner:focus {
+  border: 1.5px solid #2d8cf0 !important;
+  background: #fff !important;
+}
+
+/* Tag/标签极简 */
+[data-theme="minimal"] .el-tag {
+  border-radius: 0 !important;
+  font-weight: 600;
+  background: #f5f7fa;
+  color: #2d8cf0;
+  border: 1px solid #ededed;
+  box-shadow: none;
+}
+
+/* 头像极简 */
+[data-theme="minimal"] .el-avatar {
+  box-shadow: none;
+  border-radius: 0 !important;
+}
+
+/* 登录页极简 */
+[data-theme="minimal"] .login-bg {
+  background: #fff;
+}
+[data-theme="minimal"] .login-glass {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #ededed;
+}
+[data-theme="minimal"] .login-header {
+  color: #2d8cf0;
+  text-shadow: none;
+}
+[data-theme="minimal"] .login-form :deep(.el-form-item__label) {
+  color: #2d8cf0;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+[data-theme="minimal"] .login-footer {
+  color: #aaa;
+  text-shadow: none;
+}
+
+/* 滚动条极简 */
+[data-theme="minimal"] ::-webkit-scrollbar {
+  width: 7px;
+  background: #ededed;
+}
+[data-theme="minimal"] ::-webkit-scrollbar-thumb {
+  background: #dedede;
+  border-radius: 0;
+}
