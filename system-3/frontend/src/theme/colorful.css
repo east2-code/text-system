@@ -1,0 +1,403 @@
+[data-theme="colorful"] {
+  /* 炫彩多彩主题色变量 */
+  --menu-bg: linear-gradient(120deg, #8b5cf6 0%, #06b6d4 50%, #f59e42 100%);
+  --menu-text: #fff;
+  --menu-active: #ffe960;
+  --main-bg: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  --panel-glass: rgba(255,255,255,0.9);
+  --panel-shadow: 0 12px 40px 0 rgba(139, 92, 246, 0.12), 0 4px 32px 0 rgba(6, 182, 212, 0.10);
+  --panel-border: 2px solid #ffe96088;
+  --accent: #8b5cf6;
+  --accent2: #06b6d4;
+  --accent3: #f59e42;
+  --accent4: #ffe960;
+  --el-color-primary: #8b5cf6;
+  --el-color-success: #06d6a0;
+  --el-color-warning: #ffe960;
+  --el-color-danger: #ef476f;
+  --el-color-info: #06b6d4;
+}
+
+/* 主体动画渐变背景 */
+[data-theme="colorful"] body {
+  background: var(--main-bg);
+  min-height: 100vh;
+  animation: colorfulBgMove 10s ease-in-out infinite alternate;
+}
+@keyframes colorfulBgMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* 侧边栏极炫彩，动感光晕+玻璃 */
+[data-theme="colorful"] .sidebar {
+  background: var(--menu-bg);
+  color: var(--menu-text);
+  box-shadow: 0 0 32px 0 #ffe96044, 0 0 0 6px #8b5cf655 inset;
+  border-right: none;
+  border-radius: 0 28px 28px 0;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  animation: sidebarPopColorful 1.1s cubic-bezier(.77,0,.18,1);
+}
+@keyframes sidebarPopColorful {
+  0% { opacity: 0; transform: translateX(-60px) scale(.8);}
+  100% { opacity: 1; transform: translateX(0) scale(1);}
+}
+[data-theme="colorful"] .sidebar:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 0 28px 28px 0;
+  background: radial-gradient(circle at 30% 80%, #ffe96088 0%, transparent 80%),
+              radial-gradient(circle at 90% 10%, #8b5cf688 0%, transparent 60%);
+  z-index: 0;
+  opacity: 0.7;
+  animation: sidebarFlareColorful 7s ease-in-out infinite alternate;
+}
+@keyframes sidebarFlareColorful {
+  0% { opacity: 0.5;}
+  100% { opacity: 0.85;}
+}
+
+/* Logo栏炫彩动画 */
+[data-theme="colorful"] .logo-bar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffe96044;
+  gap: 13px;
+  letter-spacing: 2px;
+  color: var(--menu-text);
+  background: linear-gradient(90deg, #fff2 0 60%, transparent 100%);
+  box-shadow: 0 4px 18px #8b5cf644;
+  z-index: 2;
+  animation: logoSlideColorful 1.2s cubic-bezier(.77,0,.18,1);
+  position: relative;
+}
+[data-theme="colorful"] .logo-bar .logo-img {
+  height: 38px;
+  margin-right: 7px;
+  filter: drop-shadow(0 2px 8px #ffe960dd) drop-shadow(0 0px 12px #8b5cf6cc);
+  transform: scale(1.14) rotate(-5deg);
+  animation: logoPopColorful 1.5s;
+}
+@keyframes logoSlideColorful {
+  from { opacity: 0; transform: translateX(-80px) scale(.9);}
+  to   { opacity: 1; transform: translateX(0) scale(1);}
+}
+@keyframes logoPopColorful {
+  from { filter: blur(2px) brightness(1.5);}
+  to   { filter: none;}
+}
+
+/* 菜单项炫彩流光动画 */
+[data-theme="colorful"] .el-menu {
+  background: transparent !important;
+  border-right: none !important;
+}
+[data-theme="colorful"] .el-menu-item {
+  border-radius: 16px;
+  margin: 6px 10px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: var(--menu-text);
+  background: linear-gradient(92deg, #fff2 60%, transparent 100%);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: box-shadow 0.28s, color 0.18s, background 0.2s;
+  box-shadow: 0 2px 12px #ffe96022;
+}
+[data-theme="colorful"] .el-menu-item.is-active,
+[data-theme="colorful"] .el-menu-item:hover {
+  background: linear-gradient(100deg, #ffe960 10%, #8b5cf6 80%);
+  color: #8b5cf6 !important;
+  box-shadow: 0 4px 18px #ffe96066, 0 2px 10px #8b5cf644;
+  animation: bounceColorful 0.4s;
+}
+[data-theme="colorful"] .el-menu-item .el-icon {
+  color: #ffe960;
+  margin-right: 7px;
+  filter: drop-shadow(0 2px 4px #8b5cf6cc);
+}
+[data-theme="colorful"] .el-menu-item.is-active .el-icon,
+[data-theme="colorful"] .el-menu-item:hover .el-icon {
+  color: #8b5cf6;
+  filter: drop-shadow(0 2px 8px #ffe960bb);
+}
+@keyframes bounceColorful {
+  0% { transform: scale(.97);}
+  60% { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+
+/* 侧边栏底部 */
+[data-theme="colorful"] .sidebar-bottom {
+  background: linear-gradient(110deg, #ffe960 5%, #f59e42 95%);
+  border-top: 2px solid #ffe96044;
+  box-shadow: 0 -2px 24px #f59e4288;
+  border-radius: 0 0 18px 18px;
+  padding: 18px 0 18px 0;
+  animation: fadeInUpColorful 1.1s cubic-bezier(.77,0,.18,1);
+}
+@keyframes fadeInUpColorful {
+  from { opacity: 0; transform: translateY(70px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+[data-theme="colorful"] .logout-btn {
+  background: #fff;
+  color: #ef476f;
+  border-radius: 16px !important;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 2px 8px #ef476f22;
+  transition: background 0.2s, color 0.2s;
+}
+[data-theme="colorful"] .logout-btn:hover {
+  background: linear-gradient(90deg, #ef476f 60%, #ffe960 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #ef476f44;
+}
+
+/* 主题下拉炫彩 */
+[data-theme="colorful"] .el-select {
+  background: #ffe960;
+  border-radius: 13px;
+  box-shadow: 0 2px 12px #8b5cf644;
+  border: none;
+  animation: fadeInUpColorful 1.2s;
+}
+[data-theme="colorful"] .el-select .el-input__inner {
+  background: #fffbe7 !important;
+  border: none !important;
+  color: #8b5cf6;
+  font-weight: bold;
+  border-radius: 13px !important;
+}
+
+/* 顶部栏炫彩动感 */
+[data-theme="colorful"] .header-bar {
+  background: linear-gradient(90deg, #8b5cf644 0px, #ffe96011 80%);
+  box-shadow: 0 2px 24px #8b5cf633;
+  border-bottom: 2px solid #ffe96044;
+  animation: fadeInDownColorful 1.1s cubic-bezier(.77,0,.18,1);
+  position: relative;
+  z-index: 1;
+  min-height: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 0 0 18px 18px;
+}
+[data-theme="colorful"] .nav-title {
+  letter-spacing: 2.3px;
+  font-weight: bold;
+  text-shadow: 0 1px 10px #f59e4288;
+  color: #8b5cf6;
+  font-size: 1.23em;
+  margin-left: 11px;
+}
+[data-theme="colorful"] .main-area {
+  background: linear-gradient(120deg,#fffbe7 80%, #8b5cf613 100%);
+  min-height: calc(100vh - 62px);
+  padding: 42px 30px 32px 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px #8b5cf622;
+  margin-left: 0 !important;
+  animation: fadeInMainColorful 1.3s cubic-bezier(.77,0,.18,1);
+}
+@keyframes fadeInDownColorful {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInMainColorful {
+  from { opacity: 0; transform: translateY(40px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+/* 卡片玻璃特效和动画，炫彩边框 */
+[data-theme="colorful"] .el-card {
+  background: var(--panel-glass) !important;
+  border: var(--panel-border) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--panel-shadow) !important;
+  animation: cardInColorful 1s cubic-bezier(.77,0,.18,1);
+}
+@keyframes cardInColorful {
+  from { opacity: 0; transform: scale(.95) translateY(45px);}
+  to   { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+/* 表格炫彩表头与条纹 */
+[data-theme="colorful"] .el-table {
+  background: #ffe96011 !important;
+  color: #8b5cf6 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 12px #8b5cf633;
+}
+[data-theme="colorful"] .el-table th {
+  background: linear-gradient(90deg,#ffe960 80%, #8b5cf6 100%) !important;
+  color: #8b5cf6;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 1.1px;
+  border-bottom: 1.5px solid #8b5cf6;
+}
+[data-theme="colorful"] .el-table__row {
+  background: #fffbe7 !important;
+  color: #8b5cf6 !important;
+  animation: none !important;
+}
+[data-theme="colorful"] .el-table__row:nth-child(even) {
+  background: #ffe96022 !important;
+}
+[data-theme="colorful"] .el-table__row:hover {
+  background: #ffe96044 !important;
+  color: #f59e42 !important;
+}
+[data-theme="colorful"] .el-table td {
+  background: inherit !important;
+  color: #8b5cf6 !important;
+  border-bottom: 1px solid #f59e42;
+}
+[data-theme="colorful"] .el-table .el-table__cell {
+  color: #8b5cf6 !important;
+}
+
+/* Tag/标签炫彩 */
+[data-theme="colorful"] .el-tag {
+  border-radius: 10px !important;
+  font-weight: bold;
+  background: linear-gradient(90deg,#8b5cf633,#ffe96044 80%);
+  color: #8b5cf6;
+  animation: tagPopInColorful 0.8s;
+}
+@keyframes tagPopInColorful {
+  from { opacity: 0; transform: scale(0.8);}
+  to   { opacity: 1; transform: scale(1);}
+}
+/* 行状态色 */
+[data-theme="colorful"] .row-expired { background: #ef476f33 !important; color: #ef476f !important;}
+[data-theme="colorful"] .row-expiring { background: #ffe96088 !important; color: #f59e42 !important;}
+[data-theme="colorful"] .row-disabled { background: #8b5cf622 !important; color: #aaa !important;}
+
+/* 按钮炫彩动效 */
+[data-theme="colorful"] .el-button {
+  border-radius: 14px !important;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  transition: background 0.2s, color 0.18s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px #ffe96033;
+  /* 修改：按钮字体颜色更易读（彩色背景用深色字体，浅色背景用主色） */
+  color: #8b5cf6 !important;
+  background: #ffe960 !important;
+}
+[data-theme="colorful"] .el-button--primary {
+  background: linear-gradient(90deg, #8b5cf6 60%, #06b6d4 100%) !important;
+  color: #fff !important; /* 保持对比色 */
+  border: none;
+}
+[data-theme="colorful"] .el-button--primary:hover {
+  background: linear-gradient(90deg, #ffe960 50%, #f59e42 100%) !important;
+  color: #8b5cf6 !important; /* 更易读 */
+  box-shadow: 0 4px 18px #ffe96088;
+}
+[data-theme="colorful"] .el-button--danger {
+  background: linear-gradient(90deg, #ef476f 60%, #ffe960 100%) !important;
+  color: #fff !important;
+  border: none;
+}
+[data-theme="colorful"] .el-button--danger:hover {
+  background: linear-gradient(90deg, #ffe960 40%, #ef476f 100%) !important;
+  color: #ef476f !important; /* 更易读 */
+  box-shadow: 0 4px 14px #ef476f55;
+}
+[data-theme="colorful"] .el-button--success {
+  background: linear-gradient(90deg, #06d6a0 60%, #8b5cf6 100%) !important;
+  color: #fff !important;
+  border: none;
+}
+[data-theme="colorful"] .el-button--success:hover {
+  background: linear-gradient(90deg, #8b5cf6 40%, #06d6a0 100%) !important;
+  color: #06d6a0 !important; /* 更易读 */
+  box-shadow: 0 4px 14px #8b5cf655;
+}
+
+/* 输入框/下拉/数字输入框色彩风格统一 */
+[data-theme="colorful"] .el-input__inner,
+[data-theme="colorful"] .el-select .el-input__inner,
+[data-theme="colorful"] .el-input-number__inner {
+  border-radius: 12px !important;
+  background: #fffbe7 !important;
+  border: 2px solid #8b5cf6 !important;
+  box-shadow: 0 2px 8px #ffe96033;
+  color: #8b5cf6 !important;
+  font-weight: bold;
+  transition: border 0.2s, box-shadow 0.3s;
+}
+[data-theme="colorful"] .el-input__inner:focus,
+[data-theme="colorful"] .el-select .el-input__inner:focus,
+[data-theme="colorful"] .el-input-number__inner:focus {
+  border: 2px solid #f59e42 !important;
+  box-shadow: 0 4px 12px #ffe96066;
+}
+
+/* 头像炫彩 */
+[data-theme="colorful"] .el-avatar {
+  box-shadow: 0 4px 16px #8b5cf644, 0 0 0 4px #ffe96055;
+  animation: popInColorful 1s;
+}
+@keyframes popInColorful {
+  from { opacity: 0; transform: scale(0.8);}
+  to   { opacity: 1; transform: scale(1);}
+}
+
+/* 登录页玻璃动画 */
+[data-theme="colorful"] .login-bg {
+  background: linear-gradient(120deg, #e0c3fc 0%, #f59e42 100%);
+  animation: loginBgMoveColorful 6s linear infinite alternate;
+}
+@keyframes loginBgMoveColorful {
+  0% { background-position: 0 0;}
+  100% { background-position: 100% 100%;}
+}
+[data-theme="colorful"] .login-glass {
+  background: #fffbe7e9;
+  border-radius: 26px;
+  box-shadow: 0 12px 32px 0 #8b5cf655;
+  border: 2px solid #ffe960;
+  animation: fadeInUpColorful 1.2s cubic-bezier(.77,0,.18,1);
+}
+[data-theme="colorful"] .login-header {
+  color: #8b5cf6;
+  text-shadow: 0 3px 18px #f59e4266;
+}
+[data-theme="colorful"] .login-form :deep(.el-form-item__label) {
+  color: #f59e42;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+[data-theme="colorful"] .login-footer {
+  color: #8b5cf6;
+  text-shadow: 0 2px 10px #f59e42;
+}
+
+/* 彩色滚动条 */
+[data-theme="colorful"] ::-webkit-scrollbar {
+  width: 7px;
+  background: #ffe96033;
+}
+[data-theme="colorful"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg,#8b5cf655 40%,#f59e4266 100%);
+  border-radius: 6px;
+}
